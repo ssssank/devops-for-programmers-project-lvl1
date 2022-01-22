@@ -23,25 +23,15 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
 
-      - name: Build App
+      - name: Build and Push App
+        id: docker_build
         uses: docker/build-push-action@v2
         with:
           context: .
           file: Dockerfile.production
-          cache-from: type=registry,ref=${{ env.APP_IMAGE_NAME }}:cached
-          cache-to: type=inline
           push: true
-          tags: ${{ env.APP_IMAGE_NAME }}:cached
+          tags: alelitvinov/devops-for-programmers-project-lvl1
 
       - name: Tests
         run: |
           make compose-ci
-
-      - name: Push
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: Dockerfile.production
-          cache-from: type=registry,ref=${{ env.APP_IMAGE_NAME }}:cached
-          push: true
-          tags: ${{ env.APP_IMAGE_NAME }}:latest
