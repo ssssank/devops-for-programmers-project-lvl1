@@ -1,9 +1,8 @@
 version: "3"
 services:
   app:
+    image: alelitvinov/devops-for-programmers-project-lvl1
     build:
-      context: .
-      dockerfile: Dockerfile
+        context: .
+        dockerfile: Dockerfile.production
     command: npm test
-    volumes:
-      - "./app:/app"
