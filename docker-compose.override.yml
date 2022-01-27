@@ -12,8 +12,8 @@ services:
   caddy:
     image: caddy:2.3.0
     ports:
-      - "80:80"
-      - "443:443"
+      - 80:80
+      - 443:443
     volumes:
       - "./services/caddy/Caddyfile:/etc/caddy/Caddyfile"
       - "./app:/etc/caddy/public"

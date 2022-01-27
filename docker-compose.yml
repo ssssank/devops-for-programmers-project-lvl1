@@ -1,5 +1,12 @@
 version: "3"
 services:
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      DATABASE_NAME: postgres
   app:
     image: alelitvinov/devops-for-programmers-project-lvl1
     build:
@@ -8,11 +15,3 @@ services:
     command: npm test
     depends_on:
       - db
-  db:
-    image: postgres:latest
-    environment:
-      POSTGRES_HOST_AUTH_METHOD: trust
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-      DATABASE_HOST: db
-      DATABASE_NAME: postgres
