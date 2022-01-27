@@ -18,4 +18,4 @@ compose-dev:
 	docker-compose run app npm run dev
 
 prepare-env:
-	cp -n .env.example .env || true
+	cp -n .env.example app/.env || true

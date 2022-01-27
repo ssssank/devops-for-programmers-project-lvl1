@@ -6,7 +6,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
-      DATABASE_NAME: postgres
+      POSTGRES_DB: postgres
   app:
     image: alelitvinov/devops-for-programmers-project-lvl1
     build:
