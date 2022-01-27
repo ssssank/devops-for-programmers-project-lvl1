@@ -5,6 +5,7 @@ compose-install:
 	docker-compose run --rm app npm ci
 
 compose-ci:
+	make prepare-env
 	docker-compose --f docker-compose.yml up --abort-on-container-exit
 
 compose-build:
@@ -15,3 +16,6 @@ compose-push:
 
 compose-dev:
 	docker-compose run app npm run dev
+
+prepare-env:
+	cp -n .env.example .env || true
