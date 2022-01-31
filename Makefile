@@ -1,5 +1,6 @@
 compose-up:
-	docker-compose up
+	make prepare-env
+	docker-compose up -d
 
 compose-install:
 	docker-compose run --rm app npm ci
